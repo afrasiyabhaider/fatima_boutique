@@ -1,0 +1,39 @@
+#upload{
+    margin-left: 45px;
+	
+}
+
+#noerror{
+    color:green;
+    text-align: left;
+}
+#error{
+    color:red;
+    text-align: left;
+}
+#img{ 
+    width: 30px;
+    border: none; 
+    height:30px;
+    margin-left: -20px;
+    margin-bottom: 91px;
+}
+
+.abcd{
+    text-align: left;
+	
+}
+
+.abcd img{
+    height:100px;
+    width:100px;
+    padding: 5px;
+    border: 1px solid rgb(232, 222, 189);
+}
+b{
+    color:red;
+}
+#formget{
+    float:right; 
+
+}

@@ -1,0 +1,4 @@
+[19-Dec-2020 13:58:40 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function bcrypt() in /home/fatimabou8/public_html/test.php:2
+Stack trace:
+#0 {main}
+  thrown in /home/fatimabou8/public_html/test.php on line 2

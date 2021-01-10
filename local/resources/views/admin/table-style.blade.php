@@ -1,0 +1,1 @@
+{!!Html::script('local/resources/views/admin/theme/js/avigher.tables.js')!!}  

@@ -1,0 +1,177 @@
+#wrapper {
+    /*background-image: url('../yosemite.jpg');
+background-size: cover;*/
+    background: tomato;
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+/*classes used to push the wrapper down when the navbar is expanded
+*/
+
+.open_wrapper {
+    top: 200px !important;
+}
+.closed_wrapper {
+    top: 0px !important;
+}
+/*      Navigation Bar
+==============================*/
+
+#m_nav_container {
+    width: 100%;
+    height: auto;
+   
+    position: fixed;
+    display: none;
+    /*	opacity: 0;*/
+    top: 0px;
+	z-index:9999 !important;
+}
+#m_nav_bar {
+    width: 80%;
+    margin: auto;
+}
+#m_nav_list {
+    list-style: none;
+}
+.m_nav_item {
+    margin-top: 15px;
+}
+.m_nav_item a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1.0em;
+    font-family: 'Bree Serif', serif !important;
+    -webkit-transition-duration: 0.5s;
+}
+.m_nav_item a:hover {
+    color: tomato;
+}
+/*classes for jQuery function*/
+
+.container_open {
+    position: fixed !important;
+    display: block;
+    height: 120px;
+}
+/*  Navigation Hamburger Icon
+==============================*/
+
+/*icon container*/
+
+#m_nav_menu {
+    width: 45px;
+    height: 45px;
+    position:fixed;
+    background: rgba(0, 0, 0, 0);
+    top: 50px;
+    right: 10px;
+    z-index: 3;
+}
+/*class applied to create the lines*/
+
+.m_nav_ham {
+    width: 35px;
+    height: 5px;
+    
+    margin: 5px auto;
+}
+.m_nav_ham_1_open {
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    margin-top: 15px;
+}
+.m_nav_ham_2_open {
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    margin-top: -10px;
+}
+.m_nav_ham_3_open {
+    opacity: 0;
+}
+/*classes used to change the button's format based on jquery toggle
+In future releases this will be used to animate the m_nav_ham divs to form 
+an X*/
+
+.button_open {
+    background: #333;
+    /*	-webkit-transform: rotate(45deg);*/
+}
+.button_closed {}
+/*      Header
+==============================*/
+
+
+
+
+
+/*Media query for all non-mobile devices*/
+
+@media screen and (min-width: 780px) {
+    /*Nav bar media queries!*/
+    #m_nav_container {
+        text-align: left;
+        height: 120px !important;
+    }
+    .m_nav_item {
+        display: inline;
+        line-height: 100px;
+        margin-right: 50px;
+    }
+    .m_nav_item a {
+        margin-top: 10px;
+        font-size: 1.2em;
+    }
+    #m_nav_item_1 {
+        margin-left: 5px;
+    }
+    #m_nav_menu:before {
+        content: "MENU";
+        color: white;
+    }
+    /*wrapper media queries*/
+    .open_wrapper {
+        top: 130px !important;
+    }
+}
+/*Media query for larger, non-mobile devices*/
+
+@media screen and (min-width: 1150px) {
+    #m_nav_container {
+        text-align: center;
+        height: 110px !important;
+        /*	position: fixed;
+	top: 0;*/
+        /*	z-index: 0 !important;*/
+    }
+
+
+	#m_nav_menu {
+    top: 15px;
+}
+
+    .m_nav_item {
+        display: inline;
+        line-height: 70px;
+        margin-right: 80px;
+        padding-bottom: 10px
+    }
+    .m_nav_item a {
+        margin-top: 10px;
+        font-size: 1.5em;
+    }
+    /*#toggle_m_nav{
+	display: none;
+}*/
+}
+/*
+Media query for mid-size non-mobile devices*/
+
+

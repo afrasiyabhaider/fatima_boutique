@@ -1,0 +1,115 @@
+div.social-container {
+    position: relative;
+    display: inline-block;
+}
+
+div.social-container>div.social-buttons {
+    position: relative;
+    display: inline;
+}
+
+div.social-buttons>div.social-btn {
+    display: inline;
+}
+
+span.social-counter {
+    float: left;
+    width: auto;
+    min-width: 25px;
+    height: 20px;
+    line-height: 20px !important;
+    font-size: 11px !important;
+    padding: 0 4px 0 4px !important;
+    margin: 0 6px 0 6px;
+    font-family: 'Open Sans', arial, sans-serif !important;
+    position: relative;
+    text-align: center;
+    background: #E6E7E9 !important;
+    color: #666666 !important;
+}
+
+.social-counter:before {
+    content: "";
+    position: absolute;
+    border: 5px solid transparent;
+    top: 50%;
+    right: 100%;
+    margin: -5px 0 0 0;
+    border-right-color: #E6E7E9;
+}
+
+.social-no-counter {
+    margin-right: 6px !important;
+}
+
+i.social-btn {
+    display: block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    border-radius: 0px;
+}
+
+.fade {
+    opacity: 1;
+    transition: opacity .20s ease-in-out;
+    -moz-transition: opacity .20s ease-in-out;
+    -webkit-transition: opacity .20s ease-in-out;
+}
+
+.fade:hover {
+    
+}
+
+.buffer-btn {
+    background-image: url("img/buffer.png");
+}
+
+.delicious-btn {
+    background-image: url("img/delicious.png");
+}
+
+.digg-btn {
+    background-image: url("img/digg.png");
+}
+
+.facebook-btn {
+    background-image: url("img/facebook.png");
+}
+
+.twitter-btn {
+    background-image: url("img/twitter.png");
+}
+
+.googleplus-btn {
+    background-image: url("img/google_plus.png");
+}
+
+.linkedin-btn {
+    background-image: url("img/linkedin.png");
+}
+
+.pinterest-btn {
+    background-image: url("img/pinterest.png");
+}
+
+.pocket-btn {
+    background-image: url("img/pocket.png");
+}
+
+.reddit-btn {
+    background-image: url("img/reddit.png");
+}
+
+.tumblr-btn {
+    background-image: url("img/tumblr.png");
+}
+
+.stumbleupon-btn {
+    background-image: url("img/stumbleupon.png");
+}
+
+.vkontakte-btn {
+    background-image: url("img/vkontakte.png");
+}

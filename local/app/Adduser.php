@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Responsive;
+namespace App;
 
 
 use Illuminate\Database\Eloquent\Model;

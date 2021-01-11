@@ -96,7 +96,7 @@ $headertype = $setts->header_type;
                                 $view_product = DB::table('product')->where('prod_token','=',$prod_id)
                                     ->get();
                                 $ord_id .=	$product->ord_id.',';
-                                // dd($view_product[$i]);
+                                dd($view_product[0]['prod_slug']);
                                 ?>
                             @for ($i=0;$i<count($view_product);$i++)
                                             <tr>

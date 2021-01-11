@@ -106,7 +106,7 @@ $headertype = $setts->header_type;
                                                         title="cancel" class="icon"><i class="fa fa-trash-o"></i></a>
                                                 </td>
                                                 <td class="romove-item">
-                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]prod_slug;?>"
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]['prod_slug'];?>"
                                                         title="edit" class="icon"><i class="fa fa-edit"></i></a>
                                                 </td>
                                                 <td class="cart-image">

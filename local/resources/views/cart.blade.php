@@ -143,14 +143,14 @@ $headertype = $setts->header_type;
                                                                         ->first();
                             $check_user = DB::table('users')
                                                                         ->where('id', '=', $row_user->user_id)
-                                                                        ->get();
-                                                                    if(!empty($check_user[0]->post_slug))
+                                                                        ->first();
+                                    if(!empty($check_user->post_slug))
                                                                     {
-                                                                        $slug = $check_user[0]->post_slug;
+                                                                        $slug = $check_user->post_slug;
                                                                     }
                                                                     else
                                                                     {
-                                                                        $slug = $check_user[0]->name;
+                                                                        $slug = $check_user->name;
                                                                     }
                                                                     $prod_name .=$view_product[$i]->prod_name.',';
                                                                     ?>
@@ -159,8 +159,8 @@ $headertype = $setts->header_type;
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <p><b class="fontsize13">@lang('languages.sold_by'):</b> <a
-                                                                    href="<?php echo $url;?>/profile/<?php echo $check_user[0]->id;?>/<?php echo $slug;?>"
-                                                    class="fontsize14 red"> {{ $check_user[0]->name ?? '' }}</a>
+                                            href="<?php echo $url;?>/profile/<?php echo $check_user->id;?>/<?php echo $slug;?>"
+                                                    class="fontsize14 red"> {{ $check_user->name ?? '' }}</a>
                                                             </p>
                                                         </div>
                                                     </div><!-- /.row -->

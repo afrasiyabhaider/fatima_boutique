@@ -131,7 +131,7 @@ $headertype = $setts->header_type;
                                                 <td class="cart-product-name-info">
                                                     <h4 class='cart-product-description'>
                                                         <a
-                                                            href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]->prod_slug;?>"><?php echo $view_product[$i]['prod_name'];?></a>
+                                                            href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]->prod_slug;?>"><?php echo $view_product[$i]->prod_name;?></a>
                                                     </h4>
                                                     <?php
                                                                     $view_user = DB::table('product')
@@ -153,7 +153,7 @@ $headertype = $setts->header_type;
                                                                     {
                                                                         $slug = $check_user[0]->name;
                                                                     }
-                                                                    $prod_name .=$view_product[$i]['prod_name'].',';
+                                                                    $prod_name .=$view_product[$i]->prod_name.',';
                                                                     ?>
                                                     <input type="hidden" name="prod_user_id[]"
                                                         value="<?php echo $row_user[0]->user_id;?>">

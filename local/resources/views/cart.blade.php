@@ -111,7 +111,7 @@ $headertype = $setts->header_type;
                                                 </td>
                                                 <td class="cart-image">
                                                     <?php
-                                                                    if(!empty($product_img_count)){
+                                        if(!empty($product_img_count)){
                                             $product_img = DB::table('product_images')
                                                                                                                 ->where('prod_token','=',$prod_id)
                                                                                                                 ->orderBy('prod_img_id','asc')
@@ -137,12 +137,12 @@ $headertype = $setts->header_type;
                                                                     $view_user = DB::table('product')
                                                                         ->where('prod_id', '=', $product->prod_id)
                                                                         ->count();
-                                                                    if(!empty($view_user))
-                                                                    {
-                                                                    $row_user = DB::table('product')
+                                if(!empty($view_user))
+                                {
+                                $row_user = DB::table('product')
                                                                         ->where('prod_id', '=', $product->prod_id)
                                                                         ->get();
-                                                                    $check_user = DB::table('users')
+                            $check_user = DB::table('users')
                                                                         ->where('id', '=', $row_user[0]->user_id)
                                                                         ->get();
                                                                     if(!empty($check_user[0]->post_slug))

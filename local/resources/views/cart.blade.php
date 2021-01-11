@@ -93,15 +93,12 @@ $headertype = $setts->header_type;
                                 $prod_id = $product->prod_token;
                                 $product_img_count = DB::table('product_images')->where('prod_token','=',$prod_id)
                                     ->count();
-                                $view_products = DB::table('product')->where('prod_token','=',$prod_id)
+                                $view_product = DB::table('product')->where('prod_token','=',$prod_id)
                                     ->get();
                                 $ord_id .=	$product->ord_id.',';
-                                dd($view_products[0]);
+                                // dd($view_product[$i]);
                                 ?>
-                            @foreach ($view_products as $item)
-                                            @php
-                                            $view_product = (object)$item;
-                                            @endphp
+                            @for ($i=0;$i<count($view_product);$i++)
                                             <tr>
                                                 <td class="romove-item">
                                                     <a href="<?php echo $url;?>/cart/<?php echo $product->ord_id;?>"
@@ -109,7 +106,7 @@ $headertype = $setts->header_type;
                                                         title="cancel" class="icon"><i class="fa fa-trash-o"></i></a>
                                                 </td>
                                                 <td class="romove-item">
-                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]prod_slug;?>"
                                                         title="edit" class="icon"><i class="fa fa-edit"></i></a>
                                                 </td>
                                                 <td class="cart-image">
@@ -120,12 +117,12 @@ $headertype = $setts->header_type;
                                                                         ->orderBy('prod_img_id','asc')
                                                                         ->get();
                                                                     ?>
-                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]['prod_slug'];?>"
                                                         class="entry-thumbnail"><img
                                                             src="<?php echo $url;?>/local/images/media/<?php echo $product_img[0]->image;?>"
                                                             alt=""></a>
                                                     <?php } else { ?>
-                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]['prod_slug'];?>"
                                                         class="entry-thumbnail"><img
                                                             src="<?php echo $url;?>/local/images/noimage_box.jpg"
                                                             alt=""></a>
@@ -134,7 +131,7 @@ $headertype = $setts->header_type;
                                                 <td class="cart-product-name-info">
                                                     <h4 class='cart-product-description'>
                                                         <a
-                                                            href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"><?php echo $view_product->prod_name;?></a>
+                                                            href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]['prod_slug'];?>"><?php echo $view_product[$i]['prod_name'];?></a>
                                                     </h4>
                                                     <?php
                                                                     $view_user = DB::table('product')
@@ -156,7 +153,7 @@ $headertype = $setts->header_type;
                                                                     {
                                                                         $slug = $check_user[0]->name;
                                                                     }
-                                                                    $prod_name .=$view_product->prod_name.',';
+                                                                    $prod_name .=$view_product[$i]['prod_name'].',';
                                                                     ?>
                                                     <input type="hidden" name="prod_user_id[]"
                                                         value="<?php echo $row_user[0]->user_id;?>">

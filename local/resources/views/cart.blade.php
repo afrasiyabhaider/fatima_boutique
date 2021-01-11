@@ -161,7 +161,7 @@ $headertype = $setts->header_type;
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <p><b class="fontsize13">@lang('languages.sold_by'):</b> <a
-                                            href="<?php echo $url;?>/profile/<?php echo $check_user->id;?>/<?php echo $slug;?>"
+                                            href="<?php echo $url;?>/profile/ {{ $check_user->id ?? '' }}/<?php echo $slug;?>"
                                                     class="fontsize14 red"> {{ $check_user->name ?? '' }}</a>
                                                             </p>
                                                         </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace Responsive;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Model;

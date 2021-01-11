@@ -220,7 +220,7 @@ $headertype = $setts->header_type;
                                                                 $price_val += $product->price * $product->quantity;
                                                                 ?>
                                                 <td class="cart-product-sub-total"><span
-                                                        class="cart-sub-total-price"><?php echo $setts[0]->site_currency.' '.number_format($price_total,2).' ';?></span>
+                                                        class="cart-sub-total-price"><?php echo $setts->site_currency.' '.number_format($price_total,2).' ';?></span>
                                                 </td>
                                             </tr>
                                             @endfor
@@ -269,12 +269,12 @@ $headertype = $setts->header_type;
                                             <th>
                                                 <div class="cart-sub-total">
                                                     <label>@lang('languages.cart_total')</label><span
-                                                        class="inner-left-md"><?php echo $setts[0]->site_currency.' '.number_format($price_val,2).' ';?></span>
+                                                        class="inner-left-md"><?php echo $setts->site_currency.' '.number_format($price_val,2).' ';?></span>
                                                 </div>
                                                 <div class="height20 clearfix"></div>
                                                 <div class="cart-grand-total">
                                                     <label>@lang('languages.processing_fee')</label><span
-                                                        class="inner-left-md"><?php echo $setts[0]->site_currency.' '.number_format($setts[0]->processing_fee,2).' ';?></span>
+                                                        class="inner-left-md"><?php echo $setts->site_currency.' '.number_format($setts->processing_fee,2).' ';?></span>
                                                 </div>
                                                 <div class="height20 clearfix"></div>
                                                 <div class="cart-grand-total">
@@ -293,7 +293,7 @@ $headertype = $setts->header_type;
                                         </tr>
                                         <input type="hidden" name="cart_total" value="<?php echo $price_val;?>">
                                         <input type="hidden" name="processing_fee"
-                                            value="<?php echo $setts[0]->processing_fee;?>">
+                                            value="<?php echo $setts->processing_fee;?>">
                                     </thead><!-- /thead -->
                                     <tbody>
                                         <tr>

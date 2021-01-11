@@ -114,11 +114,11 @@ $headertype = $setts->header_type;
                                         if(!empty($product_img_count)){
                                             $product_img = DB::table('product_images')->where('prod_token','=',$prod_id)
                                                                                                                 ->orderBy('prod_img_id','asc')
-                                                                                                                ->get();
+                                                                                                                ->first();
                                                                     ?>
                                                     <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]->prod_slug;?>"
                                                         class="entry-thumbnail"><img
-                                                            src="<?php echo $url;?>/local/images/media/<?php echo $product_img[0]->image;?>"
+                                                            src="<?php echo $url;?>/local/images/media/<?php echo $product_img->image;?>"
                                                             alt=""></a>
                                                     <?php } else { ?>
                                                     <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]->prod_slug;?>"

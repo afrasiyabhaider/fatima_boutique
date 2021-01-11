@@ -140,9 +140,9 @@ $headertype = $setts->header_type;
                                 {
                                 $row_user = DB::table('product')
                                                                         ->where('prod_id', '=', $product->prod_id)
-                                                                        ->get();
+                                                                        ->first();
                             $check_user = DB::table('users')
-                                                                        ->where('id', '=', $row_user[0]->user_id)
+                                                                        ->where('id', '=', $row_user->user_id)
                                                                         ->get();
                                                                     if(!empty($check_user[0]->post_slug))
                                                                     {
@@ -155,7 +155,7 @@ $headertype = $setts->header_type;
                                                                     $prod_name .=$view_product[$i]->prod_name.',';
                                                                     ?>
                                                     <input type="hidden" name="prod_user_id[]"
-                                                        value="<?php echo $row_user[0]->user_id;?>">
+                                                        value="<?php echo $row_user->user_id;?>">
                                                     <div class="row">
                                                         <div class="col-sm-12">
                                                             <p><b class="fontsize13">@lang('languages.sold_by'):</b> <a

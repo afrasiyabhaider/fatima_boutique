@@ -2,7 +2,7 @@
      <div class="container">
           <div class="breadcrumb-inner">
                <ul class="list-inline list-unstyled">
-                    <li><a href="{{$url}}">Home</a></li>
+                    <li><a href="<?php echo $url;?>">Home</a></li>
                     <li class='active'>Login</li>
                </ul>
           </div>
@@ -25,7 +25,7 @@
                               class="alert alert-danger"> {{ Session::get('error') }} </div> @endif
                          @if(Session::has('get_error')) <div class="alert alert-danger">
                               <?php $value_email = Session::get('get_error'); ?> Please confirm email verfication to
-                              login <a href="{{$url}}/resend/<?php echo base64_encode($value_email);?>"
+                              login <a href="<?php echo $url;?>/resend/<?php echo base64_encode($value_email);?>"
                                    style="font-weight:bold; color:#0000FF; text-decoration:underline;">Resend Email</a>
                          </div> @endif </div>
                     <div class="panel panel-default ">
@@ -70,27 +70,26 @@
                                                   href="{{ url('/login/github') }}"><i class="fa fa-github"
                                                        aria-hidden="true"></i> Github</a> <a
                                                   href="{{ url('/login/google') }}" class="">google-plus</i></a> <a
-                                                  href="{{$url}}/login/facebook" class="">facebook</i></a><a
-                                                  href="{{$url}}/login/twitter" class="">twitter</i></a><a
-                                                  href="{{$url}}/login/google" class="">google-plus</i></a><a
-                                                  href="{{$url}}/login/linkedin" class="">linkedin</i></a><a
-                                                  href="{{$url}}/login/github" class="">github</i></a></div>
+                                                  href="<?php echo $url;?>/login/facebook" class="">facebook</i></a><a
+                                                  href="<?php echo $url;?>/login/twitter" class="">twitter</i></a><a
+                                                  href="<?php echo $url;?>/login/google" class="">google-plus</i></a><a
+                                                  href="<?php echo $url;?>/login/linkedin" class="">linkedin</i></a><a
+                                                  href="<?php echo $url;?>/login/github" class="">github</i></a></div>
                                    </div><?php */?> <div class="height10 clearfix"></div>
-                                   {{-- <div class="form-group">
+                                   <div class="form-group d-none">
                                         <div class="col-md-1"></div>
                                         <div class="col-md-10" align="center">
                                              <div class="ffleft" style="margin-right:5px;"> <a
                                                        href="{{ url('/login/facebook') }}"><img
-                                                            src="{{ $url }}/local/images/facebook_btn.png"
+                                                            src="<?php echo $url;?>/local/images/facebook_btn.png"
                                                             border="0" alt="facebook login"
                                                             class="img-responsive" /></a></div>
                                              <div class="ffleft"> <a href="{{ url('/login/google') }}" class=""><img
-                                                            src="{{$url}}/local/images/google_btn.png"
+                                                            src="<?php echo $url;?>/local/images/google_btn.png"
                                                             border="0" alt="google plus login"
                                                             class="img-responsive" /></a></div>
                                         </div>
                                         <div class="col-md-1"></div>
-                                   </div> --}}
                               </form>
                          </div>
                     </div>

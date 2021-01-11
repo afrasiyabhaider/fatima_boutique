@@ -148,9 +148,11 @@ $headertype = $setts->header_type;
                                                                     {
                                                                                                         $slug = $check_user->post_slug;
                                                                     }
-                                                                    else
+                                                                    else if($check_user)
                                                                     {
-                                                                                                                $slug = {{ $check_user->name ?? '' }};
+                                                                                                                $slug = $check_user->name;
+                                                                    }else{
+                                                                                                                                    $slug = '';
                                                                     }
                                                                     $prod_name .=$view_product[$i]->prod_name.',';
                                                                     ?>

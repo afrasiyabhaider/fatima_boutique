@@ -112,8 +112,7 @@ $headertype = $setts->header_type;
                                                 <td class="cart-image">
                                                     <?php
                                         if(!empty($product_img_count)){
-                                            $product_img = DB::table('product_images')
-                                                                                                                ->where('prod_token','=',$prod_id)
+                                            $product_img = DB::table('product_images')->where('prod_token','=',$prod_id)
                                                                                                                 ->orderBy('prod_img_id','asc')
                                                                                                                 ->get();
                                                                     ?>
@@ -161,7 +160,7 @@ $headertype = $setts->header_type;
                                                         <div class="col-sm-12">
                                                             <p><b class="fontsize13">@lang('languages.sold_by'):</b> <a
                                                                     href="<?php echo $url;?>/profile/<?php echo $check_user[0]->id;?>/<?php echo $slug;?>"
-                                                                    class="fontsize14 red"><?php echo $check_user[0]->name;?></a>
+                                                    class="fontsize14 red"> {{ $check_user[0]->name ?? '' }}</a>
                                                             </p>
                                                         </div>
                                                     </div><!-- /.row -->
@@ -285,7 +284,7 @@ $headertype = $setts->header_type;
                                                             style="width:150px;">
                                                             <option value="">Select</option>
                                                             <option value="local_shipping">Local shipping
-                                                                (<?php echo $admin_details[0]->country;?>)</option>
+                                                                ({{ $admin_details[0]->country ?? ''}})</option>
                                                             <option value="world_shipping">World shipping</option>
                                                         </select></span>
                                                 </div>

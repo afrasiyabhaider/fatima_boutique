@@ -223,7 +223,7 @@ $headertype = $setts->header_type;
                                                         class="cart-sub-total-price"><?php echo $setts[0]->site_currency.' '.number_format($price_total,2).' ';?></span>
                                                 </td>
                                             </tr>
-                                            @endforeach
+                                            @endfor
                                             <?php } } ?>
                                             <input type="hidden" name="order_ids"
                                                 value="<?php echo rtrim($ord_id,',');?>">

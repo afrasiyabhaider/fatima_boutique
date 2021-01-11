@@ -102,8 +102,7 @@ $headertype = $setts[0]->header_type;
                                 ?>
                                 @foreach ($view_products as $item)
                                 @php
-                                    $view_product = $item->toObject();
-                                    
+                                    $view_product = (object)$item;
                                 @endphp
                                     <tr>
                                         <td class="romove-item">

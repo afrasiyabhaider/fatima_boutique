@@ -90,6 +90,7 @@ $headertype = $setts[0]->header_type;
                                     ->where('prod_token','=',$prod_id)
                                     ->get();
                                 $ord_id .=	$product->ord_id.',';
+                                dd($view_product);
                                 ?>
                                 <tr>
                                     <td class="romove-item">

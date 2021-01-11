@@ -94,7 +94,7 @@ $headertype = $setts->header_type;
                                 $product_img_count = DB::table('product_images')
                                     ->where('prod_token','=',$prod_id)
                                     ->count();
-                                $view_products = App\Product->where('prod_token','=',$prod_id)
+                                $view_products = ->where('prod_token','=',$prod_id)
                                     ->get();
                                 $ord_id .=	$product->ord_id.',';
                                 dd($view_product);
@@ -115,8 +115,8 @@ $headertype = $setts->header_type;
                                                 </td>
                                                 <td class="cart-image">
                                                     <?php
-                        if(!empty($product_img_count)){
-                        $product_img = DB::table('product_images')
+                                                                    if(!empty($product_img_count)){
+                                            $product_img = DB::table('product_images')
                                                                         ->where('prod_token','=',$prod_id)
                                                                         ->orderBy('prod_img_id','asc')
                                                                         ->get();

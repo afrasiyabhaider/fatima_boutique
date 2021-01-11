@@ -91,10 +91,9 @@ $headertype = $setts->header_type;
                                 $prod_name = "";
                                 foreach($cart_views as $product){
                                 $prod_id = $product->prod_token;
-                                $product_img_count = DB::table('product_images')
-                                    ->where('prod_token','=',$prod_id)
+                                $product_img_count = DB::table('product_images')->where('prod_token','=',$prod_id)
                                     ->count();
-                                $view_products = ->where('prod_token','=',$prod_id)
+                                $view_products = DB::table('product')->where('prod_token','=',$prod_id)
                                     ->get();
                                 $ord_id .=	$product->ord_id.',';
                                 dd($view_product);

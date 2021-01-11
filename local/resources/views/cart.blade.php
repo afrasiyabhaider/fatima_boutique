@@ -5,8 +5,8 @@ $url = URL::to("/");
 $setid=1;
 $setts = DB::table('settings')
     ->where('id', '=', $setid)
-    ->get();
-$headertype = $setts[0]->header_type;
+    ->first();
+$headertype = $setts->header_type;
 ?>
 <!DOCTYPE html>
 <html class="no-js" lang="en">
@@ -94,51 +94,50 @@ $headertype = $setts[0]->header_type;
                                 $product_img_count = DB::table('product_images')
                                     ->where('prod_token','=',$prod_id)
                                     ->count();
-                                $view_products = DB::table('product')
-                                    ->where('prod_token','=',$prod_id)
+                                $view_products = App\Product->where('prod_token','=',$prod_id)
                                     ->get();
                                 $ord_id .=	$product->ord_id.',';
-                                // dd($view_product);
+                                dd($view_product);
                                 ?>
-                                @foreach ($view_products as $item)
-                                @php
-                                    $view_product = (object)$item;
-                                @endphp
-                                    <tr>
-                                        <td class="romove-item">
-                                            <a href="<?php echo $url;?>/cart/<?php echo $product->ord_id;?>"
-                                                onClick="return confirm('@lang('languages.are_you_sure')');"
-                                                title="cancel" class="icon"><i class="fa fa-trash-o"></i></a>
-                                        </td>
-                                        <td class="romove-item">
-                                            <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
-                                                title="edit" class="icon"><i class="fa fa-edit"></i></a>
-                                        </td>
-                                        <td class="cart-image">
-                                            <?php
-                                                                    if(!empty($product_img_count)){
-                                                                    $product_img = DB::table('product_images')
+                            @foreach ($view_products as $item)
+                                            @php
+                                            $view_product = (object)$item;
+                                            @endphp
+                                            <tr>
+                                                <td class="romove-item">
+                                                    <a href="<?php echo $url;?>/cart/<?php echo $product->ord_id;?>"
+                                                        onClick="return confirm('@lang('languages.are_you_sure')');"
+                                                        title="cancel" class="icon"><i class="fa fa-trash-o"></i></a>
+                                                </td>
+                                                <td class="romove-item">
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
+                                                        title="edit" class="icon"><i class="fa fa-edit"></i></a>
+                                                </td>
+                                                <td class="cart-image">
+                                                    <?php
+                        if(!empty($product_img_count)){
+                        $product_img = DB::table('product_images')
                                                                         ->where('prod_token','=',$prod_id)
                                                                         ->orderBy('prod_img_id','asc')
                                                                         ->get();
                                                                     ?>
-                                            <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
-                                                class="entry-thumbnail"><img
-                                                    src="<?php echo $url;?>/local/images/media/<?php echo $product_img[0]->image;?>"
-                                                    alt=""></a>
-                                            <?php } else { ?>
-                                            <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
-                                                class="entry-thumbnail"><img
-                                                    src="<?php echo $url;?>/local/images/noimage_box.jpg"
-                                                    alt=""></a>
-                                            <?php } ?>
-                                        </td>
-                                        <td class="cart-product-name-info">
-                                            <h4 class='cart-product-description'>
-                                                <a
-                                                    href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"><?php echo $view_product->prod_name;?></a>
-                                            </h4>
-                                            <?php
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
+                                                        class="entry-thumbnail"><img
+                                                            src="<?php echo $url;?>/local/images/media/<?php echo $product_img[0]->image;?>"
+                                                            alt=""></a>
+                                                    <?php } else { ?>
+                                                    <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"
+                                                        class="entry-thumbnail"><img
+                                                            src="<?php echo $url;?>/local/images/noimage_box.jpg"
+                                                            alt=""></a>
+                                                    <?php } ?>
+                                                </td>
+                                                <td class="cart-product-name-info">
+                                                    <h4 class='cart-product-description'>
+                                                        <a
+                                                            href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product->prod_slug;?>"><?php echo $view_product->prod_name;?></a>
+                                                    </h4>
+                                                    <?php
                                                                     $view_user = DB::table('product')
                                                                         ->where('prod_id', '=', $product->prod_id)
                                                                         ->count();
@@ -160,18 +159,18 @@ $headertype = $setts[0]->header_type;
                                                                     }
                                                                     $prod_name .=$view_product->prod_name.',';
                                                                     ?>
-                                            <input type="hidden" name="prod_user_id[]"
-                                                value="<?php echo $row_user[0]->user_id;?>">
-                                            <div class="row">
-                                                <div class="col-sm-12">
-                                                    <p><b class="fontsize13">@lang('languages.sold_by'):</b> <a
-                                                            href="<?php echo $url;?>/profile/<?php echo $check_user[0]->id;?>/<?php echo $slug;?>"
-                                                            class="fontsize14 red"><?php echo $check_user[0]->name;?></a>
-                                                    </p>
-                                                </div>
-                                            </div><!-- /.row -->
-                                            <?php } ?>
-                                            <?php
+                                                    <input type="hidden" name="prod_user_id[]"
+                                                        value="<?php echo $row_user[0]->user_id;?>">
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            <p><b class="fontsize13">@lang('languages.sold_by'):</b> <a
+                                                                    href="<?php echo $url;?>/profile/<?php echo $check_user[0]->id;?>/<?php echo $slug;?>"
+                                                                    class="fontsize14 red"><?php echo $check_user[0]->name;?></a>
+                                                            </p>
+                                                        </div>
+                                                    </div><!-- /.row -->
+                                                    <?php } ?>
+                                                    <?php
                                                                     /*if(!empty($product->prod_attribute))
                                                                     {*/
                                                                     $cats = explode(",", $product->prod_attribute);
@@ -192,7 +191,7 @@ $headertype = $setts[0]->header_type;
                                                                         {
                                                                             ?>
 
-                                            <?php
+                                                    <?php
                                                                             $prod_type = DB::table('product_attribute_type')
                                                                                 ->where('delete_status','=','')
                                                                                 ->where('status','=',1)
@@ -203,32 +202,32 @@ $headertype = $setts[0]->header_type;
                                                                         ?>
 
 
-                                            <?php
+                                                    <?php
                                                                     }
                                                                     $attri_name = rtrim($value_namer,', ');
                                                                     ?>
-                                            <div class="cart-product-info">
-                                                <?php if(!empty($product->prod_attribute)){ ?>
-                                                <span class="product-color">(<?php echo $attri_name;?>)</span>
-                                                <?php } ?>
-                                            </div>
-                                        </td>
-                                        <td class="cart-product-quantity">
-                                            <div class="quant-input">
-                                                <?php /*?><input type="number"
-                                                    value="<?php echo $product->quantity;?>" min="1"
-                                                    max="<?php echo $row_user[0]->prod_available_qty;?>"><?php */?>
-                                                <?php echo $product->quantity;?>
-                                            </div>
-                                        </td>
-                                        <?php $price_total = $product->price * $product->quantity;
+                                                    <div class="cart-product-info">
+                                                        <?php if(!empty($product->prod_attribute)){ ?>
+                                                        <span class="product-color">(<?php echo $attri_name;?>)</span>
+                                                        <?php } ?>
+                                                    </div>
+                                                </td>
+                                                <td class="cart-product-quantity">
+                                                    <div class="quant-input">
+                                                        <?php /*?><input type="number"
+                                                            value="<?php echo $product->quantity;?>" min="1"
+                                                            max="<?php echo $row_user[0]->prod_available_qty;?>"><?php */?>
+                                                        <?php echo $product->quantity;?>
+                                                    </div>
+                                                </td>
+                                                <?php $price_total = $product->price * $product->quantity;
                                                                 $price_val += $product->price * $product->quantity;
                                                                 ?>
-                                        <td class="cart-product-sub-total"><span
-                                                class="cart-sub-total-price"><?php echo $setts[0]->site_currency.' '.number_format($price_total,2).' ';?></span>
-                                        </td>
-                                    </tr>
-                                @endforeach
+                                                <td class="cart-product-sub-total"><span
+                                                        class="cart-sub-total-price"><?php echo $setts[0]->site_currency.' '.number_format($price_total,2).' ';?></span>
+                                                </td>
+                                            </tr>
+                                            @endforeach
                                             <?php } } ?>
                                             <input type="hidden" name="order_ids"
                                                 value="<?php echo rtrim($ord_id,',');?>">

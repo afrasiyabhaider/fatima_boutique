@@ -99,7 +99,7 @@ $headertype = $setts->header_type;
                                 dd($view_product[0]);
                                 ?>
                             @for ($i=0;$i<count($view_product);$i++)
-                                            <tr>
+                                        <tr>
                                                 <td class="romove-item">
                                                     <a href="<?php echo $url;?>/cart/<?php echo $product->ord_id;?>"
                                                         onClick="return confirm('@lang('languages.are_you_sure')');"
@@ -113,9 +113,9 @@ $headertype = $setts->header_type;
                                                     <?php
                                                                     if(!empty($product_img_count)){
                                             $product_img = DB::table('product_images')
-                                                                        ->where('prod_token','=',$prod_id)
-                                                                        ->orderBy('prod_img_id','asc')
-                                                                        ->get();
+                                                                                                                ->where('prod_token','=',$prod_id)
+                                                                                                                ->orderBy('prod_img_id','asc')
+                                                                                                                ->get();
                                                                     ?>
                                                     <a href="<?php echo $url;?>/product/<?php echo $product->prod_id;?>/<?php echo $view_product[$i]['prod_slug'];?>"
                                                         class="entry-thumbnail"><img

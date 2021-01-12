@@ -356,25 +356,23 @@ class AdduserController extends Controller
 		
 		 $data = $request->all();
 		$rules = array(
-        
-       
+			'email'=>'required|email|unique:users,email',
+			'name' => 'required|regex:/^[\w-]*$/|max:255|unique:users,name',
+			'photo' => 'max:'.$imgsize.'|mimes:'.$imgtype
 		
-        'email'=>'required|email|unique:users,email',
-		'name' => 'required|regex:/^[\w-]*$/|max:255|unique:users,name',
-		'photo' => 'max:'.$imgsize.'|mimes:'.$imgtype
-		
-        );
+        	);
 		
 		
 		$messages = array(
             
             'email' => 'The :attribute field is already exists',
-            'name' => 'The :attribute field must only be letters and numbers (no spaces)'
+		  'name' => 'The :attribute field must only be letters and numbers (no spaces)',
+		'unique' => 'The :attribute has already been taken.Please choose another one',
 			
         );
 
 		
-		$validator = Validator::make(Input::all(), $rules, $messages);
+		$validator = Validator::make(Input::all(), $rules);
 
 		if ($validator->fails())
 		{

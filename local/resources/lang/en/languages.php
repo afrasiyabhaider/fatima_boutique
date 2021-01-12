@@ -500,10 +500,11 @@ return [
 	
 	"withdrawal_request" => "Withdrawal Request",
 	"withdraw_type" => "Withdraw Type",
-	
+
 	/* withdraw */
-	
-	
+
+	/* Validation */
+	'unique' => 'The :attribute has already been taken.Please choose another one',
 	
 	
 

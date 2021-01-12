@@ -756,5 +756,5 @@ Route::get('migrate-fresh',function ()
 {
 	\Artisan::call('migrate:fresh');
 	dd("Command Success");
-})
+});
 
